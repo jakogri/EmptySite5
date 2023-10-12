@@ -1,0 +1,59 @@
+{
+  "PlanName":"Your Plan",
+  "Network":"HealthNet",
+  "PlanType":"см формулу ниже в комментарии"
+  /*
+  //это типа формула для заполнения этого поля
+   if (PlanName.contains('HMO') OR Network.contains('HMO') {
+     PlanType = 'HMO';
+   } else if PlanName.contains('PPO') OR Network.contains('PPO')
+     PlanType = 'PPO';
+   }*/
+,
+  "FilePath":"здесь нужно значение поля Path, но вместо Word файла нужно имя PDF файла и заменить виндовый разделитель '\\' на '/'",
+  "Deductible":{
+    "InNetwork":{
+      "Member":"PLAN MAXIMUMS.Calendar year deductible.In-network.Member",
+      "Family":"PLAN MAXIMUMS.Calendar year deductible.In-network.Family"
+    },
+    "OutOfNetwork": {
+      "Member":"PLAN MAXIMUMS.Calendar year deductible.Out-of-network.Member",
+      "Family":"PLAN MAXIMUMS.Calendar year deductible.Out-of-network.Family"
+    }
+  },
+  "OOPLimit": {
+    "InNetwork": {
+      "Member": "PLAN MAXIMUMS.Out-of-pocket maximum.In-network.Member",
+      "Family": "PLAN MAXIMUMS.Out-of-pocket maximum.In-network.Family"
+    },
+    "OutOfNetwork": {
+      "Member": "PLAN MAXIMUMS.Out-of-pocket maximum.Out-of-network.Member",
+      "Family": "PLAN MAXIMUMS.Out-of-pocket maximum.Out-of-network.Family"
+    }
+  },
+  "PCPVisit": {
+    "InNetwork":"PROFESSIONAL SERVICES.Office visit.In-network",
+    "OutOfNetwork":"PROFESSIONAL SERVICES.Office visit.Out-of-network"
+  },
+  "SpecialistVisit":{
+    "InNetwork":"Professional services.Specialist consultation.In-network",
+    "OutOfNetwork":"Professional services.Specialist consultation.Out-of-network"
+  },
+  "RxGenericTier1":{
+    "InNetwork":"Prescription drug coverage.Prescription drugs 1.In-network",
+    "OutOfNetwork":"Prescription drug coverage.Prescription drugs 1.Out-of-network"
+  },
+  "RxBrandTier2":{
+    "InNetwork":"Prescription drug coverage.Prescription drugs 2.In-network",
+    "OutOfNetwork":"Prescription drug coverage.Prescription drugs 2.Out-of-network"
+  },
+  "RxNonFormularyTier3":{
+    "InNetwork":"Prescription drug coverage.Prescription drugs 3.In-network",
+    "OutOfNetwork":"Prescription drug coverage.Prescription drugs 3.Out-of-network"
+  },
+  "UrgentCare":{
+    "InNetwork":"Emergency services.Urgent care.In-network",
+    "OutOfNetwork":"Emergency services.Urgent care.Out-of-network"
+  }
+}
+

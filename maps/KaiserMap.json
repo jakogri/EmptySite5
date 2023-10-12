@@ -1,0 +1,66 @@
+/**
+ * Created by gsolovyev on 10/12/15.
+ */
+{
+    "PlanName":"Plan name",
+    "Network":"Kaiser", //это значение а не имя поля. Все планы Kaiser имееют Network = Kaiser
+    "PlanType":"HMO"
+    /*
+     //это типа формула для заполнения этого поля
+     if (PlanName.contains('HMO') OR Network.contains('HMO') {
+     PlanType = 'HMO';
+     } else if PlanName.contains('PPO') OR Network.contains('PPO')
+     PlanType = 'PPO';
+     }*/
+    ,
+    "FilePath":"здесь нужно значение поля Path, но вместо Word файла нужно имя PDF файла и заменить виндовый разделитель '\\' на '/'",
+    "Deductible":{
+      "InNetwork":{
+          "Member":"ANNUAL PLAN DEDUCTIBLE.In-network.Member",
+          "Family":"ANNUAL PLAN DEDUCTIBLE.In-network.Family"
+      },
+      "OutOfNetwork": {
+          "Member":"ANNUAL PLAN DEDUCTIBLE.Out-of-network.Member",
+          "Family":"ANNUAL PLAN DEDUCTIBLE.Out-of-network.Family"
+      }
+    },
+    "OOPLimit": {
+      "InNetwork": {
+          "Member": "ANNUAL OUT-OF-POCKET MAXIMUM.In-network.Member",
+          "Family": "ANNUAL OUT-OF-POCKET MAXIMUM.In-network.Family"
+      },
+      "OutOfNetwork": {
+        "Member": "ANNUAL OUT-OF-POCKET MAXIMUM.Out-of-network.Member",
+        "Family": "ANNUAL OUT-OF-POCKET MAXIMUM.Out-of-network.Family"
+      }
+    },
+    "PCPVisit": {
+      "InNetwork":"IN THE MEDICAL OFFICE.Primary care visits.In-network",
+      "OutOfNetwork":"IN THE MEDICAL OFFICE.Primary care visits.Out-of-network"
+    },
+    "SpecialistVisit":{
+      "InNetwork":"IN THE MEDICAL OFFICE.Specialty office visits.In-network",
+      "OutOfNetwork":"IN THE MEDICAL OFFICE.Specialty office visits.Out-of-network"
+    },
+    "RxGenericTier1":{
+      "InNetwork":"PRESCRIPTIONS.Generic drugs",
+      "OutOfNetwork":"PRESCRIPTIONS.Generic drugs"
+    },
+    "RxBrandTier2":{
+      "InNetwork":"PRESCRIPTIONS.Brand-name drugs",
+      "OutOfNetwork":"PRESCRIPTIONS.Brand-name drugs"
+    },
+    "RxNonFormularyTier3":{
+      "InNetwork":"PRESCRIPTIONS.Brand-name drugs",
+      "OutOfNetwork":"PRESCRIPTIONS.Brand-name drugs"
+    },
+    "RxNonPreferredTier4":{
+      "InNetwork":"PRESCRIPTIONS.Brand-name drugs",
+      "OutOfNetwork":"PRESCRIPTIONS.Brand-name drugs"
+    },
+    "UrgentCare":{
+      "InNetwork":"IN THE MEDICAL OFFICE.Urgent care visits.In-network",
+      "OutOfNetwork":"IN THE MEDICAL OFFICE.Urgent care visits.Out-of-network"
+    }
+}
+

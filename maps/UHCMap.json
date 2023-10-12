@@ -1,0 +1,41 @@
+/**
+ * Created by gsolovyev on 10/12/15.
+
+ */
+{
+  "PlanName":"Plan name",
+  "Network":"UnitedHealthcare", //это значение а не имя поля. Все планы Kaiser имееют Network = Kaiser
+  "PlanType":"HMO", /* у нас пока что есть только HMO планы от UnitedHealthcare, поэтому PlanType всегда равен HMO и нет полей OutOfNetwork */
+  "FilePath":"здесь нужно значение поля Path, но вместо Word файла нужно имя PDF файла и заменить виндовый разделитель '\\' на '/'",
+  "Deductible":{
+    "InNetwork":{
+      "Member":"General Features.Calendar Year Deductible.Individual",
+      "Family":"General Features.Calendar Year Deductible.Family"
+    }
+  },
+  "OOPLimit": {
+    "InNetwork": {
+      "Member": "General Features.Annual Copayment Maximum.Member",
+      "Family": "General Features.Annual Copayment Maximum.Family"
+    }
+  },
+  "PCPVisit": {
+    "InNetwork":"General Features.PCP Office Visits"
+  },
+  "SpecialistVisit":{
+    "InNetwork":"General Features.Specialist/Nonphysician Health Care Practitioner Office Visits"
+  },
+  "RxGenericTier1":{
+    "InNetwork":"Benefits Available on an Outpatient Basis.Outpatient Prescription Drug Benefit.Generic Formulary"
+  },
+  "RxBrandTier2":{
+    "InNetwork":"Benefits Available on an Outpatient Basis.Outpatient Prescription Drug Benefit.Brand-Name Formulary"
+  },
+  "RxNonFormularyTier3":{
+    "InNetwork":"Benefits Available on an Outpatient Basis.Outpatient Prescription Drug Benefit.Non-Formulary"
+  },
+  "UrgentCare":{
+    "InNetwork":"General Features.Specialist/Nonphysician Health Care Practitioner Office Visits" /* то же самое, что и SpecialistVisit */
+  }
+}
+

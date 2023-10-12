@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">      
+        <title></title>
+        <script>
+            var htmlTBody;
+            var ResultValue = [];
+            var ResultCount;
+
+            function SetTable(tableId)
+            {
+                var SumString = "";
+                var ResultPoint;
+                var ResultPoint = 0;
+                var i = 0;
+
+                htmlTBody = document.getElementById(tableId);
+                ResultPoint = setupTable(ResultPoint, "Covered Medical Benefits", "2", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Overall Deductible", "1", "1", "1", "1", "1", "1");
+                ResultPoint = setupTable(ResultPoint, "Out-of-Pocket Limit", "1", "1", "1", "1", "1", "1");
+                ResultPoint = setupTable(ResultPoint, "Doctor Home and Office Services", "3", "0", "0", "0", "0", "0");
+                /*ResultPoint = setupTable(ResultPoint, "Acupuncture", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Chemo/radiation therapy", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Chiropractor services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Hemodialysis", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "On-line visit", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Post-natal care", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Prenatal and post-natal visit", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Prenatal care", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Prescription drugs", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Preventive care", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Primary care visit to treat an injury or illness", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Specialist care visit", "1", "1", "0", "0", "0", "0");
+                /*ResultPoint = setupTable(ResultPoint, "Other practitioner visits", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Acupuncture", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Chiropractor services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Retail health clinic", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Allergy testing", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Chemo/radiation therapy", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Other services in an office", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Hemodialysis", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Prescription drugs", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Diagnostic Services", "3", "0", "0", "0", "0", "0");
+                /*ResultPoint = setupTable(ResultPoint, "Lab", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Outpatient hospital", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Office", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "X-ray", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Outpatient hospital", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Advanced diagnostic imaging", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Office", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Outpatient hospital", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Emergency and Urgent Care", "4", "0", "0", "0", "0", "0");
+                /*ResultPoint = setupTable(ResultPoint, "Emergency room facility services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Emergency room doctor and other services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Ambulance", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Urgent care", "1", "1", "0", "0", "0", "0");
+                /*ResultPoint = setupTable(ResultPoint, "Doctor services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Outpatient Mental/Behavioral Health and Substance Abuse", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Doctor office visit", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Doctor services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Facility visit", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Facility fees", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Outpatient Surgery", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Doctor and other services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Hospital", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Facility fee", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Freestanding surgical center", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Hospital", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Hospital Stay", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Doctor and other services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Visit our Website to learn which in-network facilities are considered Tier 1 and therefore may result in lower cost sharing for you", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Recovery & Rehabilitation", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Cardiac rehabilitation", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Durable medical equipment & prosthetics", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Durable medical equipment", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Home health care", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Limited to 100 days per year", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Orthotics, prosthetics and special footwear", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Rehabilitation services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Skilled nursing care", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Visit our Website to learn which in-network facilities are considered Tier 1 and therefore", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "may result in lower cost sharing for you; Limited to 100 days per year", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Rehabilitation services", "4", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Office", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Covered Prescription Drug Benefits", "2", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Retail Prescription Drug Coverage", "3", "0", "0", "0", "0", "0");
+                //ResultPoint = setupTable(ResultPoint, "Drug tier 4 per-prescription maximum cost share", "1", "1", "0", "0", "0", "0");
+                //ResultPoint = setupTable(ResultPoint, "Deductible", "1", "1", "1", "1", "1", "1");
+                ResultPoint = setupTable(ResultPoint, "Drug tier 1", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Drug tier 2", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Drug tier 3", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Drug tier 4", "1", "1", "0", "0", "0", "0");
+               /* ResultPoint = setupTable(ResultPoint, "Elective contact lenses", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Frames", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Lenses", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Children's Dental Essential Health Benefits", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Basic services", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Covered Vision Benefits", "2", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "This is a brief outline of your vision coverage; Not all cost shares for covered services are shown below; For a full list, including benefits, exclusions and limitations, see the combined Evidence of Coverage/Disclosure Form/Certificate; If there is a difference between this summary and either Evidence of Coverage/Disclosure form/Certificate, the Evidence of Coverage/Disclosure form/Certificate will prevail", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Frames", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Elective Contact Lenses", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Non-Elective Contact Lenses", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Children's Vision Essential Health Benefits", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Covered Dental Benefits", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Trifocal", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Bifocal", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Vision exam", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Adult Vision", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Elective contact lenses", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Frames", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Lenses", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Vision exam", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Children's Dental Essential Health Benefits", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Cosmetic Orthodontia services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Deductible", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Diagnostic and preventive", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Major services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Medically Necessary Orthodontia services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Out-of-Pocket Limit", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Covered Dental Benefits", "2", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Children's Dental Essential Health Benefits", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Deductible", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Major services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Adult Dental", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Annual maximum", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Basic services", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Deductible", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Diagnostic and preventive", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Major services", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Your plan also includes the following Healthy Support features", "2", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "FitOrbit", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Gym membership reimbursement", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Healthy Lifestyles incentives", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Quarterly Health Webinars", "1", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Tobacco free certification with incentives", "1", "0", "0", "0", "0", "0");*/
+                ResultCount = ResultPoint.toString();
+                document.getElementById("resultcount").setAttribute("value", ResultCount);
+
+            }
+
+
+            function setupTable(ResultPoint, field1, IsIn, IsOut, IsInMam, IsInFam, IsOutMam, IsOutFam)
+            {
+                rowTpl = document.createElement("TR");
+                if (IsIn == 2)
+                {
+                    var TD1 = document.createElement("TD");
+                    var newTxt1 = document.createTextNode(field1);
+                    TD1.setAttribute("colspan", "5");
+                    TD1.setAttribute("align", "center");
+                    TD1.setAttribute("style", "font-weight: bold; text-transform: uppercase");
+                    TD1.appendChild(newTxt1);
+                    rowTpl.appendChild(TD1);
+                }
+                else if (IsIn == 3)
+                {
+                    var TD1 = document.createElement("TD");
+                    var newTxt1 = document.createTextNode("1) " + field1);
+                    TD1.setAttribute("colspan", "5");
+                    TD1.setAttribute("align", "center");
+                    TD1.setAttribute("style", "font-weight: bold");
+                    TD1.appendChild(newTxt1);
+                    rowTpl.appendChild(TD1);
+                }
+                else if (IsIn == 4)
+                {
+                    var TD1 = document.createElement("TD");
+                    var newTxt1 = document.createTextNode("2) " + field1);
+                    TD1.setAttribute("colspan", "5");
+                    TD1.setAttribute("align", "center");
+                    TD1.setAttribute("style", "font-weight: bold");
+                    TD1.appendChild(newTxt1);
+                    rowTpl.appendChild(TD1);
+                }
+                else
+                {
+
+
+                    var TD1 = document.createElement("TD");
+                    var newTxt1 = document.createTextNode(field1);
+                    TD1.appendChild(newTxt1);
+                    rowTpl.appendChild(TD1);
+                    if ((IsIn == "1") || (IsOut == "1"))
+                    {
+                        if (IsIn == "1")
+                        {
+                            if ((IsInFam == "1") || (IsInMam == "1"))
+                            {
+                                var TD3 = document.createElement("TD");
+                                var TD4 = document.createElement("TD");
+                                if (IsInMam == 1)
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD3.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint++;
+                                    rowTpl.appendChild(TD3);
+
+                                }
+                                if (IsInFam == 1)
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD4.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint++;
+                                    rowTpl.appendChild(TD4);
+                                }
+                            }
+
+                            else if ((IsInFam == "0") && (IsInMam == "0"))
+                            {
+                                var TD3 = document.createElement("TD");
+                                TD3.setAttribute("colspan", "2");
+                                ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                TD3.appendChild(ResultValue[ResultPoint.toString()]);
+                                ResultPoint++;
+                                rowTpl.appendChild(TD3);
+                            }
+
+                        }
+
+                        else if (IsIn == "0")
+                        {
+                            var TD3 = document.createElement("TD");
+                            TD3.setAttribute("colspan", "2");
+                            rowTpl.appendChild(TD3);
+                        }
+
+                        if (IsOut == "1")
+                        {
+                            if ((IsOutFam == "1") || (IsOutMam == "1"))
+                            {
+                                var TD5 = document.createElement("TD");
+                                var TD6 = document.createElement("TD");
+                                if (IsOutMam == "1")
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD5.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint++;
+                                    rowTpl.appendChild(TD5);
+
+                                }
+                                if (IsOutFam == "1")
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD6.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint = ResultPoint + 1;
+                                    rowTpl.appendChild(TD6);
+
+                                }
+                            }
+
+                            else if ((IsOutFam == "0") && (IsOutMam == "0"))
+                            {
+                                var TD5 = document.createElement("TD");
+                                TD5.setAttribute("colspan", "2");
+                                ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                TD5.appendChild(ResultValue[ResultPoint.toString()]);
+                                ResultPoint++;
+                                rowTpl.appendChild(TD5);
+                            }
+
+                        }
+
+                        else if (IsOut == "0")
+                        {
+                            var TD5 = document.createElement("TD");
+                            TD5.setAttribute("colspan", "2");
+                            rowTpl.appendChild(TD5);
+                        }
+
+                    }
+                };
+                htmlTBody.appendChild(rowTpl.cloneNode(true));
+                return ResultPoint;
+
+            }
+
+</script>
+    </head>
+    <body>      
+        <form method="POST" action="/save">
+          <input type="hidden" id="CarrierName" name="CarrierName" value="Anthem">
+          <table border="1" cellspacing="0" cellpadding="0" width="100%">   
+                 <caption style="font-weight:bold">
+                 Carrier name: Anthem   
+                 </caption>
+                 <caption style="font-weight:bold">Plan:<input autocomplete="off" name="Plan" style="font-weight:bold" size=30><Br>
+                 </caption>
+                 <caption style="font-weight:bold">Network:<input autocomplete="off" name="Network" style="font-weight:bold" size=30><Br>
+                 </caption>
+                 <caption style="font-weight:bold">
+

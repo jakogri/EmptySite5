@@ -1,0 +1,63 @@
+{
+  "PlanName":"Your Plan",
+  "Network":"Your Network",
+  "PlanType":"см формулу ниже в комментарии"
+   /*
+   //это типа формула для заполнения этого поля
+    if (PlanName.contains('HMO') OR Network.contains('HMO') {
+      PlanType = 'HMO';
+    } else if PlanName.contains('PPO') OR Network.contains('PPO')
+      PlanType = 'PPO';
+    }*/
+  ,
+  "FilePath":"здесь нужно значение поля Path, но вместо Word файла нужно имя PDF файла и заменить виндовый разделитель '\\' на '/'",
+  "Deductible":{
+    "InNetwork":{
+      "Member":"Covered Medical Benefits.Overall Deductible.Cost if you use an Innetwork Provider.Member",
+      "Family":"Covered Medical Benefits.Overall Deductible.Cost if you use an Innetwork Provider.Family"
+    },
+    "OutOfNetwork": {
+    "Member":"Covered Medical Benefits.Overall Deductible.Cost if you use an Outof-network Provider.Member",
+    "Family":"Covered Medical Benefits.Overall Deductible.Cost if you use an Outof-network Provider.Family"
+    }
+  },
+  "OOPLimit": {
+    "InNetwork": {
+      "Member": "Covered Medical Benefits.Out-of-Pocket Limit.Cost if you use an Innetwork Provider.Member",
+      "Family": "Covered Medical Benefits.Out-of-Pocket Limit.Cost if you use an Innetwork Provider.Family"
+    },
+    "OutOfNetwork": {
+      "Member": "Covered Medical Benefits.Out-of-Pocket Limit.Cost if you use an Outof-network Provider.Member",
+      "Family": "Covered Medical Benefits.Out-of-Pocket Limit.Cost if you use an Outof-network Provider.Family"
+    }
+  },
+  "PCPVisit": {
+    "InNetwork":"Covered Medical Benefits.Doctor Home and Office Services.Primary care visit to treat an injury or illness.Cost if you use an Innetwork Provider",
+    "OutOfNetwork":"Covered Medical Benefits.Doctor Home and Office Services.Primary care visit to treat an injury or illness.Cost if you use an Outof-network Provider"
+  },
+  "SpecialistVisit":{
+    "InNetwork":"Covered Medical Benefits.Doctor Home and Office Services.Specialist care visit.Cost if you use an Innetwork Provider",
+    "OutOfNetwork":"Covered Medical Benefits.Doctor Home and Office Services.Specialist care visit.Cost if you use an Outof-network Provider"
+  },
+  "RxGenericTier1":{
+    "InNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 1.Cost if you use an Innetwork Provider",
+    "OutOfNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 1.Cost if you use an Outof-network Provider"
+  },
+  "RxBrandTier2":{
+    "InNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 2.Cost if you use an Innetwork Provider",
+    "OutOfNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 2.Cost if you use an Outof-network Provider"
+  },
+  "RxNonFormularyTier3":{
+    "InNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 3.Cost if you use an Innetwork Provider",
+    "OutOfNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 3.Cost if you use an Outof-network Provider"
+  },
+  "RxNonPreferredTier4":{
+    "InNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 4.Cost if you use an Innetwork Provider",
+    "OutOfNetwork":"Covered Prescription Drug Benefits.Retail Prescription Drug Coverage.Drug tier 4.Cost if you use an Outof-network Provider"
+  },
+  "UrgentCare":{
+    "InNetwork":"Covered Medical Benefits.Emergency and Urgent Care.Urgent care.Cost if you use an Innetwork Provider",
+    "OutOfNetwork":"Covered Medical Benefits.Emergency and Urgent Care.Urgent care.Cost if you use an Outof-network Provider"
+  }
+}
+

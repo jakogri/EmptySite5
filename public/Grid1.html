@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+    <head>
+     
+ 
+    
+        
+
+        <meta charset="UTF-8">      
+        <title>Dynamic table</title>
+     
+        <script>
+            /*
+            var parametr=p_url.split("&");
+            var values= new Array();
+            for(i in parametr) {
+            var j=parametr[i].split("=");
+            values[j[0]]=unescape(j[1]);
+            }
+            */
+            var htmlTBody;
+            var ResultValue = [];
+            var ResultCount;
+
+            function f1()
+            {
+                var i = 1;
+                var str;
+               
+                str = "/login?parcount=" + ResultCount.toString() + "&value0=" + document.getElementById("val0").value;
+                while (i < ResultCount)
+                {
+                    str = str + "&value" + i.toString() + "=" + document.getElementById("val" + i.toString()).value;
+                    i++;
+                }
+                document.location.href = str;
+            }
+
+
+            function commit(tableId)
+            {
+                var ResultPoint;
+                htmlTBody = document.getElementById(tableId);
+                var ResultPoint = 0;
+                ResultPoint = setupTable(ResultPoint, "PLAN MAXIMUMS", "Calendar year deductible", "1", "1", "1", "1", "1", "1");
+                ResultPoint = setupTable(ResultPoint, "PLAN MAXIMUMS", "Lifetime benefit maximum", "1", "0", "0", "0", "0", "1");
+                ResultPoint = setupTable(ResultPoint, "PLAN MAXIMUMS", "Lifetime maximum", "1", "0", "0", "0", "0", "0");
+                ResultCount = ResultPoint;
+            }
+
+
+            function setupTable(ResultPoint, field1, field2, IsIn, IsOut, IsInMam, IsInFam, IsOutMam, IsOutFam)
+            {
+
+                rowTpl = document.createElement("TR");
+                var TD1 = document.createElement("TD");
+                var TD2 = document.createElement("TD");
+                var newTxt1 = document.createTextNode(field1);
+                var newTxt2 = document.createTextNode(field2);
+                TD1.appendChild(newTxt1);
+                TD2.appendChild(newTxt2);
+                rowTpl.appendChild(TD1);
+                rowTpl.appendChild(TD2);
+                if ((IsIn == "1") || (IsOut == "1"))
+                {
+                    if (IsIn == "1")
+                    {
+                        if ((IsInFam == "1") || (IsInMam == "1"))
+                        {
+                            var TD3 = document.createElement("TD");
+                            var TD4 = document.createElement("TD");
+                            if (IsInMam == 1)
+                            {
+                                val1 = document.createElement("INPUT");
+                                val1.id = "val" + ResultPoint.toString();
+                                val1.setAttribute("value", val1.id);
+                                val1.setAttribute("style", "width:100%");
+                                TD3.appendChild(val1);
+                                ResultPoint = ResultPoint + 1;
+                                rowTpl.appendChild(TD3);
+
+                            }
+                            if (IsInFam == 1)
+                            {
+                                val2 = document.createElement("INPUT");
+                                val2.id = "val" + ResultPoint.toString();
+                                val2.setAttribute("value", val2.id);
+                                val2.setAttribute("style", "width:100%");
+                                TD4.appendChild(val2);
+                                ResultPoint = ResultPoint + 1;
+                                rowTpl.appendChild(TD4);
+                            }
+                        }
+
+                        else if ((IsInFam == "0") && (IsInMam == "0"))
+                        {
+                            var TD3 = document.createElement("TD");
+                            TD3.setAttribute("colspan", "2");
+                            val1 = document.createElement("INPUT");
+                            val1.id = "val" + ResultPoint.toString();
+                            val1.setAttribute("value", val1.id);
+                            val1.setAttribute("style", "width:100%");
+                            TD3.appendChild(val1);
+                            ResultPoint = ResultPoint + 1;
+                            rowTpl.appendChild(TD3);
+                        }
+
+                    }
+
+                    else if (IsIn == "0")
+                    {
+                        var TD3 = document.createElement("TD");
+                        TD3.setAttribute("colspan", "2");
+                        rowTpl.appendChild(TD3);
+                    }
+
+                    if (IsOut == "1")
+                    {
+                        if ((IsOutFam == "1") || (IsOutMam == "1"))
+                        {
+                            var TD5 = document.createElement("TD");
+                            var TD6 = document.createElement("TD");
+                            if (IsOutMam == "1")
+                            {
+                                val3 = document.createElement("INPUT");
+                                val3.id = "val" + ResultPoint.toString();
+                                val3.setAttribute("value", val3.id);
+                                val3.setAttribute("style", "width:100%");
+                                TD5.appendChild(val3);
+                                ResultPoint = ResultPoint + 1;
+                                rowTpl.appendChild(TD5);
+
+                            }
+                            if (IsOutFam == "1")
+                            {
+                                val4 = document.createElement("INPUT");
+                                val4.id = "val" + ResultPoint.toString();
+                                val4.setAttribute("value", val4.id);
+                                TD6.appendChild(val4);
+                                ResultPoint = ResultPoint + 1;
+                                rowTpl.appendChild(TD6);
+
+                            }
+                        }
+
+                        else if ((IsOutFam == "0") && (IsOutMam == "0"))
+                        {
+                            var TD5 = document.createElement("TD");
+                            TD5.setAttribute("colspan", "2");
+                            val3 = document.createElement("INPUT");
+                            val3.id = "val" + ResultPoint.toString();
+                            va3.setAttribute("value", val3.id);
+                            val3.setAttribute("style", "width:100%");
+                            TD5.appendChild(val3);
+                            ResultPoint = ResultPoint + 1;
+                            rowTpl.appendChild(TD5);
+                        }
+
+                    }
+
+                    else if (IsOut == "0")
+                    {
+                        var TD5 = document.createElement("TD");
+                        TD5.setAttribute("colspan", "2");
+                        rowTpl.appendChild(TD5);
+                    }
+
+                }
+
+                htmlTBody.appendChild(rowTpl.cloneNode(true));
+                return ResultPoint;
+
+            }
+
+</script>
+    </head>
+    <body>      
+        <form method="POST" action="/">
+           <a href="/" type="botton">Clear the table</a>
+           <a href="javascript: f1();" type="botton">Save data</a>
+           <table border="1" cellspacing="0" cellpadding="0" width="100%"> 
+                 <caption>
+                    
+                   
+                </caption>
+                <!-- Заголовки //-->
+                <thead>
+                    <tr>
+                        <th scope="col" width="36%" rowspan="2">Level 1</th>
+                        <th scope="col" width="36%" rowspan="2">Level 2</th>
+                        <th scope="col" width="14%" colspan="2">In-network</th>
+                        <th scope="col" width="14%" colspan="2">Out-of-network</th>
+                                        
+                     </tr>
+                     <tr>
+                       <th scope="col" width="7%">Memberk</th>
+                       <th scope="col" width="7%">Family</th>
+                       <th scope="col" width="7%">Member</th>
+                       <th scope="col" width="7%">Family</th>                
+                     </tr>
+                     
+                </thead>
+                <!-- Сюда будем добавлять строки //-->
+                <tbody id="dynamic"></tbody>
+                
+            </table>
+            
+        </form>
+       
+       <script>
+           
+           commit("dynamic"); 
+        </script>     
+        
+    </body>
+</html>

@@ -1,0 +1,34 @@
+               </caption>
+                <!-- Заголовки //-->
+                <thead>
+                    <tr>
+                        <th scope="col" width="52%" rowspan="2">Field</th>
+                        <th scope="col" width="24%" colspan="2">In-network</th>
+                        <th scope="col" width="24%" colspan="2">Out-of-network</th>
+                                        
+                     </tr>
+                     <tr>
+                       <th scope="col" width="12%">Member</th>
+                       <th scope="col" width="12%">Family</th>
+                       <th scope="col" width="12%">Member</th>
+                       <th scope="col" width="12%">Family</th>                
+                     </tr>
+                     
+                </thead>
+                <!-- Сюда будем добавлять строки //-->
+                <tbody id="dynamic"></tbody>
+                
+            </table>
+        
+        <input type="submit" id="submit" value="Save data">
+          <!-- <a href="/clear" type="botton">Clear the table</a>//-->
+          <input type="hidden" id="resultcount" name="resultcount" > 
+        </form>
+    
+       <script>
+           
+           SetTable("dynamic"); 
+        </script>     
+        
+    </body>
+</html>

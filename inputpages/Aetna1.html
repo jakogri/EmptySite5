@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">      
+        <title></title>
+     
+        <script>
+
+            var htmlTBody;
+            var ResultValue = [];
+            var ResultCount;
+            function SetTable(tableId)
+            {
+                var SumString = "";
+                var ResultPoint;
+                var ResultPoint = 0;
+                var i = 0;
+
+                htmlTBody = document.getElementById(tableId);
+                //ResultPoint = setupTable(ResultPoint, "PCP/Referrals required", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Member Benefits", "2", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Calendar year plan deductible", "1", "1", "1", "1", "1", "1");
+                ResultPoint = setupTable(ResultPoint, "Out-of-pocket limit", "1", "1", "1", "1", "1", "1");
+                /*ResultPoint = setupTable(ResultPoint, "Deductible & out-of-pocket limit accumulation", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Not included in out-of-pocket limit", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Primary care physician office visit", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Specialist office visit", "1", "1", "0", "0", "0", "0");
+                /* ResultPoint = setupTable(ResultPoint, "Preventive care/Screenings/Immunizations", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Imaging", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Pharmacy plan type", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Prescription drug deductible", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Outpatient surgery OP hospital department", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Outpatient surgery freestanding facility", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Inpatient hospital facility", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Rehabilitation services", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Emergency room", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Emergency medical transport", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Urgent care", "1", "1", "0", "0", "0", "0");
+                /*ResultPoint = setupTable(ResultPoint, "Walk-in clinics", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Chiropractic", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Adult routine vision", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Diagnostic testing", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Lab", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "X-ray", "1", "1", "0", "0", "0", "0");*/
+                ResultPoint = setupTable(ResultPoint, "Prescription drugs", "3", "0", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Tier 1: preferred generic", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Tier 2: preferred brand", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Tier 3: nonpreferred generic & brand", "1", "1", "0", "0", "0", "0");
+                ResultPoint = setupTable(ResultPoint, "Tier 4: Aetna Specialty CareRx", "1", "1", "0", "0", "0", "0");
+                ResultCount = ResultPoint.toString();
+                document.getElementById("resultcount").setAttribute("value", ResultCount);
+
+            }
+
+
+            function setupTable(ResultPoint, field1, IsIn, IsOut, IsInMam, IsInFam, IsOutMam, IsOutFam)
+            {
+                rowTpl = document.createElement("TR");
+                if (IsIn == 2)
+                {
+                    var TD1 = document.createElement("TD");
+                    var newTxt1 = document.createTextNode(field1);
+                    TD1.setAttribute("colspan", "5");
+                    TD1.setAttribute("align", "center");
+                    TD1.setAttribute("style", "font-weight: bold; text-transform: uppercase");
+                    TD1.appendChild(newTxt1);
+                    rowTpl.appendChild(TD1);
+                }
+                else if (IsIn == 3)
+                {
+                    var TD1 = document.createElement("TD");
+                    var newTxt1 = document.createTextNode("1) " + field1);
+                    TD1.setAttribute("colspan", "5");
+                    TD1.setAttribute("align", "center");
+                    TD1.setAttribute("style", "font-weight: bold");
+                    TD1.appendChild(newTxt1);
+                    rowTpl.appendChild(TD1);
+                }
+                else
+                {
+
+
+                    var TD1 = document.createElement("TD");
+                    var newTxt1 = document.createTextNode(field1);
+                    if (IsIn == 3) TD1.setAttribute("style", "font-weight: bold");
+                    TD1.appendChild(newTxt1);
+                    rowTpl.appendChild(TD1);
+                    if ((IsIn == "1") || (IsOut == "1"))
+                    {
+                        if (IsIn == "1")
+                        {
+                            if ((IsInFam == "1") || (IsInMam == "1"))
+                            {
+                                var TD3 = document.createElement("TD");
+                                var TD4 = document.createElement("TD");
+                                if (IsInMam == 1)
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD3.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint++;
+                                    rowTpl.appendChild(TD3);
+
+                                }
+                                if (IsInFam == 1)
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD4.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint++;
+                                    rowTpl.appendChild(TD4);
+                                }
+                            }
+
+                            else if ((IsInFam == "0") && (IsInMam == "0"))
+                            {
+                                var TD3 = document.createElement("TD");
+                                TD3.setAttribute("colspan", "2");
+                                ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                TD3.appendChild(ResultValue[ResultPoint.toString()]);
+                                ResultPoint++;
+                                rowTpl.appendChild(TD3);
+                            }
+
+                        }
+
+                        else if (IsIn == "0")
+                        {
+                            var TD3 = document.createElement("TD");
+                            TD3.setAttribute("colspan", "2");
+                            rowTpl.appendChild(TD3);
+                        }
+
+                        if (IsOut == "1")
+                        {
+                            if ((IsOutFam == "1") || (IsOutMam == "1"))
+                            {
+                                var TD5 = document.createElement("TD");
+                                var TD6 = document.createElement("TD");
+                                if (IsOutMam == "1")
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD5.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint++;
+                                    rowTpl.appendChild(TD5);
+
+                                }
+                                if (IsOutFam == "1")
+                                {
+                                    ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                    ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                    ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                    ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                    ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                    ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                    TD6.appendChild(ResultValue[ResultPoint.toString()]);
+                                    ResultPoint = ResultPoint + 1;
+                                    rowTpl.appendChild(TD6);
+
+                                }
+                            }
+
+                            else if ((IsOutFam == "0") && (IsOutMam == "0"))
+                            {
+                                var TD5 = document.createElement("TD");
+                                TD5.setAttribute("colspan", "2");
+                                ResultValue[ResultPoint.toString()] = document.createElement("INPUT");
+                                ResultValue[ResultPoint.toString()].id = "value" + ResultPoint.toString();
+                                ResultValue[ResultPoint.toString()].setAttribute("value", "");
+                                ResultValue[ResultPoint.toString()].setAttribute("autocomplete", "off");
+                                ResultValue[ResultPoint.toString()].setAttribute("name", "value" + ResultPoint.toString());
+                                ResultValue[ResultPoint.toString()].setAttribute("style", "background: #7FFFD4;width:100%");
+                                TD5.appendChild(ResultValue[ResultPoint.toString()]);
+                                ResultPoint++;
+                                rowTpl.appendChild(TD5);
+                            }
+
+                        }
+
+                        else if (IsOut == "0")
+                        {
+                            var TD5 = document.createElement("TD");
+                            TD5.setAttribute("colspan", "2");
+                            rowTpl.appendChild(TD5);
+                        }
+
+                    }
+                };
+                htmlTBody.appendChild(rowTpl.cloneNode(true));
+                return ResultPoint;
+            }
+
+</script>
+    </head>
+    <body>      
+        <form method="POST" action="/save">
+         <input type="hidden" id="CarrierName" name="CarrierName" value="Aetna">
+          <table border="1" cellspacing="0" cellpadding="0" width="100%"> 
+                 <caption style="font-weight:bold">
+                 Carrier name: Aetna    
+                 </caption>
+                 <caption style="font-weight:bold">Plan:<select name="Plan" style="font-weight:bold">

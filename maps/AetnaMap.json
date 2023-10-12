@@ -1,0 +1,63 @@
+{
+  "PlanName":"Plan name",
+  "Network":"Networks available",
+  "PlanType":"см формулу ниже в комментарии"
+  /*
+  //это типа формула для заполнения этого поля
+   if (PlanName.contains('HMO') OR Network.contains('HMO') {
+     PlanType = 'HMO';
+   } else if PlanName.contains('PPO') OR (PlanName.contains('MC') && !PlanName.contains('HMO')) OR Network.contains('PPO')
+     PlanType = 'PPO';
+   } e*/
+,
+  "FilePath":"здесь нужно значение поля Path, но вместо Word файла нужно имя PDF файла и заменить виндовый разделитель '\\' на '/'",
+  "Deductible":{
+    "InNetwork":{
+      "Member":"Member Benefits.Calendar Year Plan Deductible.Participating Providers.Individual",
+      "Family":"Member Benefits.Calendar Year Plan Deductible.Participating Providers.Family"
+    },
+    "OutOfNetwork": {
+      "Member":"Member Benefits.Calendar Year Plan Deductible.Non-Participating Providers.Individual",
+      "Family":"Member Benefits.Calendar Year Plan Deductible.Non-Participating Providers.Family"
+    }
+  },
+  "OOPLimit": {
+    "InNetwork": {
+      "Member": "Member Benefits.Out-of-Pocket Limit.Participating Providers.Individual",
+      "Family": "Member Benefits.Out-of-Pocket Limit.Participating Providers.Family"
+    },
+    "OutOfNetwork": {
+      "Member": "Member Benefits.Out-of-Pocket Limit.Non-Participating Providers.Individual",
+      "Family": "Member Benefits.Out-of-Pocket Limit.Non-Participating Providers.Family"
+    }
+  },
+  "PCPVisit": {
+    "InNetwork":"Member Benefits.Primary Care Physician Office Visit.Participating Providers",
+    "OutOfNetwork":"Member Benefits.Primary Care Physician Office Visit.Non-Participating Providers"
+  },
+  "SpecialistVisit":{
+    "InNetwork":"Member Benefits.Specialist Office Visit.Participating Providers",
+    "OutOfNetwork":"Member Benefits.Specialist Office Visit.Non-Participating Providers"
+  },
+  "RxGenericTier1":{
+    "InNetwork":"Member Benefits.Prescription Drugs.Tier 1: Generic Preferred.Participating Providers",
+    "OutOfNetwork":"Member Benefits.Prescription Drugs.Tier 1: Generic Preferred.Non-Participating Providers"
+  },
+  "RxBrandTier2":{
+    "InNetwork":"Member Benefits.Prescription Drugs.Tier 2: Brand Preferred.Participating Providers",
+    "OutOfNetwork":"Member Benefits.Prescription Drugs.Tier 2: Brand Preferred.Non-Participating Providers"
+  },
+  "RxNonFormularyTier3":{
+    "InNetwork":"Member Benefits.Prescription Drugs.Tier 3: Non-preferred.Participating Providers",
+    "OutOfNetwork":"Member Benefits.Prescription Drugs.Tier 3: Non-preferred.Non-Participating Providers"
+  },
+  "RxNonPreferredTier4":{
+    "InNetwork":"Member Benefits.Prescription Drugs.Tier 3: Non-preferred.Participating Providers",
+    "OutOfNetwork":"Member Benefits.Prescription Drugs.Tier 3: Non-preferred.Non-Participating Providers"
+  },
+  "UrgentCare":{
+    "InNetwork":"Member Benefits.Urgent care.Participating Providers",
+    "OutOfNetwork":"Member Benefits.Urgent care.Non-Participating Providers"
+  }
+}
+

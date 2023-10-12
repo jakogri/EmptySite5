@@ -1,0 +1,63 @@
+{
+  "PlanName":"Your Plan",
+  "Network":"Provider Network",
+  "PlanType":"см формулу ниже в комментарии"
+  /*
+  //это типа формула для заполнения этого поля
+   if (PlanName.contains('HMO') OR Network.contains('HMO') {
+     PlanType = 'HMO';
+   } else if PlanName.contains('PPO') OR Network.contains('PPO')
+     PlanType = 'PPO';
+   }*/
+,
+  "FilePath":"здесь нужно значение поля Path, но вместо Word файла нужно имя PDF файла и заменить виндовый разделитель '\\' на '/'",
+  "Deductible":{
+    "InNetwork":{
+      "Member":"DEDUCTIBLE.Calendar Year Medical Deductible.Participating Providers.Individual",
+      "Family":"DEDUCTIBLE.Calendar Year Medical Deductible.Participating Providers.Family"
+    },
+    "OutOfNetwork": {
+      "Member":"DEDUCTIBLE.Calendar Year Medical Deductible.Non-Participating Providers.Individual",
+      "Family":"DEDUCTIBLE.Calendar Year Medical Deductible.Non-Participating Providers.Family"
+    }
+  },
+  "OOPLimit": {
+    "InNetwork": {
+      "Member": "DEDUCTIBLE.Calendar Year Out-of-Pocket Maximum.Participating Providers.Individual",
+      "Family": "DEDUCTIBLE.Calendar Year Out-of-Pocket Maximum.Participating Providers.Family"
+    },
+    "OutOfNetwork": {
+      "Member": "DEDUCTIBLE.Calendar Year Out-of-Pocket Maximum.Non-Participating Providers.Individual",
+      "Family": "DEDUCTIBLE.Calendar Year Out-of-Pocket Maximum.Non-Participating Providers.Family"
+    }
+  },
+  "PCPVisit": {
+    "InNetwork":"PROFESSIONAL SERVICES.Professional Benefits.Physician office visits.Participating Providers",
+    "OutOfNetwork":"PROFESSIONAL SERVICES.Professional Benefits.Physician office visits.Non-Participating Providers"
+  },
+  "SpecialistVisit":{
+    "InNetwork":"PROFESSIONAL SERVICES.Professional Benefits.Specialist office visits.Participating Providers",
+    "OutOfNetwork":"PROFESSIONAL SERVICES.Professional Benefits.Specialist office visits.Non-Participating Providers"
+  },
+  "RxGenericTier1":{
+    "InNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Generic drugs.Participating Providers",
+    "OutOfNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Generic drugs.Non-Participating Providers"
+  },
+  "RxBrandTier2":{
+    "InNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Preferred brand drugs.Participating Providers",
+    "OutOfNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Preferred brand drugs.Non-Participating Providers"
+  },
+  "RxNonFormularyTier3":{
+    "InNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Non-preferred brand drugs.Participating Providers",
+    "OutOfNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Non-preferred brand drugs.Non-Participating Providers"
+  },
+  "RxNonPreferredTier4":{
+    "InNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Non-preferred brand drugs.Participating Providers",
+    "OutOfNetwork":"PRESCRIPTION DRUG COVERAGE.Retail Prescriptions.Non-preferred brand drugs.Non-Participating Providers"
+  },
+  "UrgentCare":{
+    "InNetwork":"EMERGENCY HEALTH COVERAGE.Urgent care.Participating Providers",
+    "OutOfNetwork":"EMERGENCY HEALTH COVERAGE.Urgent care.Non-Participating Providers"
+  }
+}
+
